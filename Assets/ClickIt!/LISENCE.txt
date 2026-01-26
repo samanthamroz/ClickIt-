@@ -1,0 +1,16 @@
+LICENSE
+
+This asset is licensed under the Unity Asset Store Standard End User License Agreement (EULA).
+
+By downloading, installing, or using this asset, you agree to be bound by the terms of the Unity Asset Store Standard EULA.
+
+The full license text is available at:
+https://unity.com/legal/as-terms
+
+EULA Summary (for convenience only):
+- You may use and modify this asset in personal and commercial projects.
+- You may not redistribute, resell, sublicense, or make this asset available as a standalone product or package.
+- You may not use this asset to create a competing asset or library.
+
+Copyright © 2026 Lattice Gameworks
+All rights reserved
