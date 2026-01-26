@@ -59,7 +59,7 @@ The easiest way to detect mouse releases for GameObjects. For these events to tr
 - `OnRightClick()`
 - `OnMiddleClick()`
 
-### Basic ClickAway Object
+### Basic Click Away Object
 The easiest way to detect a "click off" of a GameObject. For these events to trigger, the object must be clicked on with the corresponding button, then after the button is released, if the mouse clicks anywhere except on the GameObject, the event will trigger.
 
 **Inspector Options (UnityEvents):**
@@ -74,7 +74,7 @@ A more customizable way to detect mouse clicks on GameObjects.
 - `Mouse Button(s)` - Which button triggers the event
 - `OnClickEvent()` - UnityEvent with methods to be triggered
 - `Delay (Seconds)` - Amount of time after a successful click to wait before triggering the UnityEvent
-- `Timeout (Seconds)` - Amount of time after a succesful click that clicks will no longer be registered.
+- `Timeout (Seconds)` - Amount of time after a succesful click after which subsequent clicks will no longer be registered.
 - `Cooldown (Seconds)` - Amount of time after a successful click that another click will not trigger another instance of the UnityEvent
 - `Buffer (Seconds)` - Amount of time before the cooldown is completed that inputs will be "buffered". For example, if Cooldown = 1 second and Buffer = 0.1 second, then if the button is clicked in the last 0.1 second before the cooldown time is completed, a click will still trigger when the cooldown is fully up.
 
@@ -85,32 +85,26 @@ A more customizable way to detect mouse releases for GameObjects.
 - `Mouse Button(s)` - Which button releasing triggers the event
 - `OnReleaseEvent()` - UnityEvent with methods to be triggered
 - `Delay (Seconds)` - Amount of time after a successful release to wait before triggering the UnityEvent
-- `Timeout (Seconds)` - Amount of time after a succesful release that releases will no longer be trigger the UnityEvent.
+- `Timeout (Seconds)` - Amount of time after a succesful release after which subsequent releases will no longer trigger the UnityEvent.
 - `Cooldown (Seconds)` - Amount of time after a successful release that another release will not trigger the UnityEvent
 - `Buffer (Seconds)` - Amount of time before the cooldown is completed that inputs will be "buffered". For example, if Cooldown = 1 second and Buffer = 0.1 second, then if the button is released in the last 0.1 second before the cooldown time is completed, the UnityEvent will still trigger when the cooldown is fully up.
+
+### Click Away Object
+A more customizable way to detect a "click off" of a GameObject. For these events to trigger, the object must be clicked on with the corresponding button, then after the button is released, if the mouse clicks anywhere except on the GameObject, the event will trigger.
+**Inspector Options:**
+- `Label (Optional)` - An optional label for organization
+- `Mouse Button(s)` - Which button triggers the event
+- `OnReleaseEvent()` - UnityEvent with methods to be triggered
+- `Delay (Seconds)` - Amount of time after a successful click to wait before triggering the UnityEvent
+- `Timeout (Seconds)` - Amount of time after a succesful click after which subsequent clicks will no longer trigger the UnityEvent.
+- `Cooldown (Seconds)` - Amount of time after a successful click that another click will not trigger the UnityEvent
+- `Buffer (Seconds)` - Amount of time before the cooldown is completed that inputs will be "buffered". For example, if Cooldown = 1 second and Buffer = 0.1 second, then if the button is clicked in the last 0.1 second before the cooldown time is completed, the UnityEvent will still trigger when the cooldown is fully up.
 
 ---
 
 ## 💡 Example Scenes
 
-ClickIt! includes example scenes demonstrating common use cases:
-
-### 1. Basic Interactions (`BasicInteractions.scene`)
-- Simple button clicks
-- Hover effects
-- Object selection
-
-### 2. Point-and-Click Game (`PointAndClick.scene`)
-- Interactive environment
-- Inventory system integration
-- Combining multiple components
-
-### 3. UI Integration (`UIIntegration.scene`)
-- World-space UI clicks
-- 3D buttons
-- Interactive menus
-
-**Location:** `Assets/ClickIt/Examples/Scenes/`
+**Location:** `Assets/ClickIt/Sample Scenes/3D Example Scene/`
 
 ---
 
