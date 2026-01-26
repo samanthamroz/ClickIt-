@@ -179,11 +179,8 @@ Full documentation available at: [Your Documentation Link]
 Need help? Got feedback?
 
 - **Email:** [hello@latticegameworks.com]
-- **Discord:** [Your Discord Server]
-- **Forum:** [Asset Store Forum Thread]
+- **Discord:** [Discord](https://discord.gg/cECsC42taf)
 - **Bug Reports:** [hello@latticegameworks.com]
-
-**Response Time:** Usually within 24 hours
 
 ---
 
@@ -205,19 +202,19 @@ Need help? Got feedback?
 
 ## 📜 License
 
-ClickIt! is licensed under the Unity Asset Store EULA.
+_ClickIt!_ is licensed under the Unity Asset Store Standard End User License Agreement (EULA).
 
-You may use this package in:
-- ✅ Commercial projects
-- ✅ Free projects
-- ✅ Game jams
-- ✅ Educational projects
+By downloading, installing, or using this asset, you agree to be bound by the terms of the Unity Asset Store Standard EULA.
 
-You may NOT:
-- ❌ Resell or redistribute the source code
-- ❌ Claim it as your own work
+The full license text is available [here](https://unity.com/legal/as-terms).
 
-See [LICENSE](LICENSE) for full details.
+EULA Summary (for convenience only):
+- ✅ You may use and modify this asset in personal, educational, and commercial projects.
+- ❌ You may not redistribute, resell, sublicense, or make this asset available as a standalone product or package.
+- ❌ You may not claim this asset as your own work.
+
+Copyright © 2026 Lattice Gameworks
+All rights reserved
 
 ---
 
@@ -225,9 +222,4 @@ See [LICENSE](LICENSE) for full details.
 
 - Leave a review on the Asset Store
 - Share it with fellow developers
-- Join our community on [Discord/Forum]
-- Check out our other tools: [DragIt!](link) | [SaveIt!](link)
-
----
-
-**Made with ❤️ for game developers who just want to make games.**
+- Join our community on [Discord](https://discord.gg/cECsC42taf)
