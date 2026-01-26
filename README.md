@@ -52,14 +52,14 @@ The easiest way to detect mouse clicks on GameObjects.
 - `OnMiddleClick()` - Triggered when middle clicked
 
 ### Basic Releaseable Object
-The easiest way to detect mouse releases on GameObjects. For these events to trigger, the object must be clicked on with the corresponding button, and when that button is released, the event will trigger.
+The easiest way to detect mouse releases for GameObjects. For these events to trigger, the object must be clicked on with the corresponding button, and when that button is released, the event will trigger.
 
 **Inspector Options (UnityEvents):**
 - `OnLeftRelease()`
 - `OnRightClick()`
 - `OnMiddleClick()`
 
-- ### Basic ClickAway Object
+### Basic ClickAway Object
 The easiest way to detect a "click off" of a GameObject. For these events to trigger, the object must be clicked on with the corresponding button, then after the button is released, if the mouse clicks anywhere except on the GameObject, the event will trigger.
 
 **Inspector Options (UnityEvents):**
@@ -67,7 +67,7 @@ The easiest way to detect a "click off" of a GameObject. For these events to tri
 - `OnRightClick()`
 - `OnMiddleClick()`
 
-- ### Clickable Object
+### Clickable Object
 A more customizable way to detect mouse clicks on GameObjects.
 **Inspector Options:**
 - `Label (Optional)` - An optional label for organization
@@ -76,7 +76,18 @@ A more customizable way to detect mouse clicks on GameObjects.
 - `Delay (Seconds)` - Amount of time after a successful click to wait before triggering the UnityEvent
 - `Timeout (Seconds)` - Amount of time after a succesful click that clicks will no longer be registered.
 - `Cooldown (Seconds)` - Amount of time after a successful click that another click will not trigger another instance of the UnityEvent
-- `Buffer (Seconds)` - Amount of time before the cooldown is completed that inputs will be "buffered". For example, if Cooldown = 1 second and Buffer = 0.1 second, then if the button is clicked in the last 0.1 second before the cooldown time is completed, a click will successfully trigger when the cooldown is fully up.
+- `Buffer (Seconds)` - Amount of time before the cooldown is completed that inputs will be "buffered". For example, if Cooldown = 1 second and Buffer = 0.1 second, then if the button is clicked in the last 0.1 second before the cooldown time is completed, a click will still trigger when the cooldown is fully up.
+
+### Releasable Object
+A more customizable way to detect mouse releases for GameObjects.
+**Inspector Options:**
+- `Label (Optional)` - An optional label for organization
+- `Mouse Button(s)` - Which button releasing triggers the event
+- `OnReleaseEvent()` - UnityEvent with methods to be triggered
+- `Delay (Seconds)` - Amount of time after a successful release to wait before triggering the UnityEvent
+- `Timeout (Seconds)` - Amount of time after a succesful release that releases will no longer be trigger the UnityEvent.
+- `Cooldown (Seconds)` - Amount of time after a successful release that another release will not trigger the UnityEvent
+- `Buffer (Seconds)` - Amount of time before the cooldown is completed that inputs will be "buffered". For example, if Cooldown = 1 second and Buffer = 0.1 second, then if the button is released in the last 0.1 second before the cooldown time is completed, the UnityEvent will still trigger when the cooldown is fully up.
 
 ---
 
