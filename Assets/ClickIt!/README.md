@@ -110,32 +110,47 @@ Each sample scene has 8 buttons showcasing common setups/use cases.
 
 **Examples available:**
 - Button 1: Basic click interactions
+
 Using the `BasicClickableObject` component, increments a counter on left click and decrements it on right click.
+
 - Button 2: Combining basic click, release, and click away functionality
+
 Using the `BasicClickableObject`, `BasicReleaseableObject`, and `BasicClickAwayObject` components:
     - begins an automatically-incrementing counter on left click
     - begins an automatically-decrementing counter on left release
     - stops the counter from moving up or down on left click away
+
 - Button 3: Using mouse information in scripts
+
 Using the `BasicClickableObject` and `BasicReleaseableObject`, moves the object with the mouse on click and snaps back to position on release.
+
 - Button 4: Subscribing to basic components in code
+
 Using the `BasicClickableObject` component, increments a counter until hitting the cap of 20 on left click and decrements it on right click. The left click functionality is added in the `Start()` method of `CappedCounter.cs`.
+
 - Button 5: Using timing parameters on advanced components
 Using the `ClickableObject` component, increments a counter on left click and spawns an object after a 1 second delay, creating a game where you must click as much as possible before the objects start falling down and decrementing the counter.
+
 - Button 6: Using the cooldown, timeout, and buffer timing parameters
+
 Using the `ClickableObject` component, creates a rhythm game where the player must click when the cooldown is up but the timeout has been reached yet, incrementing a counter each time they are succesfully in the "green" zone. The star on the slider shows the different timing parameters:
     - Blue: In cooldown
     - Yellow: In "buffer zone" (inputs registered but event not triggered until cooldown is up)
     - Green: Cooldown is up
     - Red: Timeout occurred
+
 - Button 7: Subscribing to advanced components in code
+
 Using the `ClickableObject` component, increments a counter on left click with an increasingly long delay. The left click functionality is added in the `Start()` method of `SlowingCappedCounter.cs`.
+
 - Button 8: Adding and adjusting timing parameters in code
+
 Using the `ClickableObject` component, creates a reaction-time game where the player must wait for the cooldown to be up and click before timeout occurs. The cooldown is set randomly each time in `ExponentialCounterAndChangeCooldown()` within `ControlReactionTimeGame.cs`.
 
 
-*3D Location:* `Assets/ClickIt/Sample Scenes/3D Example Scene/`
-*2D Location:* `Assets/ClickIt/Sample Scenes/3D Example Scene/`
+**3D Location:** `Assets/ClickIt/Sample Scenes/3D Example Scene/`
+**2D Location:** `Assets/ClickIt/Sample Scenes/3D Example Scene/`
+
 ---
 
 ## 🛠️ Advanced Usage
