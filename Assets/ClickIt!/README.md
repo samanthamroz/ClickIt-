@@ -107,7 +107,7 @@ A more customizable way to detect a "click off" of a GameObject. For these event
 
 ## 💡 Example Scenes
 Each sample scene has the following 8 buttons showcasing common setups/use cases:
-- Button 1: Basic click interactions
+- Button 1: Basic click interactionsddd
 
 
 **3D Location:** `Assets/ClickIt/Sample Scenes/3D Example Scene/`
