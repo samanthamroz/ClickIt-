@@ -1,12 +1,11 @@
 using UnityEngine;
 using System;
-using UnityEngine.InputSystem.Interactions;
 
 namespace ClickIt.Backend {
     public class MouseButtonRouter : IMouseButtonRouter {
         private InteractableRaycaster raycaster;
-        private IInteractable[] currentInteractablesBeingClicked;
-        private IInteractable[] lastInteractablesClicked;
+        private IValidatedObject[] currentInteractablesBeingClicked;
+        private IValidatedObject[] lastInteractablesClicked;
 
         public MouseButtonRouter(InteractableRaycaster raycaster) {
             this.raycaster = raycaster;
@@ -25,7 +24,7 @@ namespace ClickIt.Backend {
         private void HandleClick<TClick, TClickAway>(Vector2 screenPosition, Action<TClick> clickAction, Action<TClickAway> clickAwayAction) {
             // Handle click-away on last interactable
             if (lastInteractablesClicked != null) {
-                foreach (IInteractable interactable in lastInteractablesClicked) {
+                foreach (IValidatedObject interactable in lastInteractablesClicked) {
                     if (interactable is TClickAway clickAwayObj) {
                         clickAwayAction(clickAwayObj);
                     }
@@ -38,7 +37,7 @@ namespace ClickIt.Backend {
 
             // Handle click on current interactable
             if (currentInteractablesBeingClicked != null) {
-                foreach (IInteractable interactable in currentInteractablesBeingClicked) {
+                foreach (IValidatedObject interactable in currentInteractablesBeingClicked) {
                     if (interactable is TClick clickObj) {
                         clickAction(clickObj);
                     }
@@ -48,7 +47,7 @@ namespace ClickIt.Backend {
 
         private void HandleRelease<TRelease>(Action<TRelease> releaseAction) {
             if (currentInteractablesBeingClicked != null) {
-                foreach (IInteractable interactable in currentInteractablesBeingClicked) {
+                foreach (IValidatedObject interactable in currentInteractablesBeingClicked) {
                     if (interactable is TRelease releaseObj) {
                         releaseAction(releaseObj);
                     }

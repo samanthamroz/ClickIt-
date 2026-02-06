@@ -1,6 +1,6 @@
 using System;
 
-namespace ClickIt.Backend {
+namespace ClickIt {
     public class InteractionEventBuilder {
         private InteractionEventData eventData;
         private Action onComplete;

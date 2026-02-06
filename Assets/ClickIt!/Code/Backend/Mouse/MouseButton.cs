@@ -1,4 +1,4 @@
-namespace ClickIt.Backend {
+namespace ClickIt {
     [System.Flags]
     public enum MouseButton {
         None = 0,

@@ -1,44 +1,86 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using ClickIt.Backend;
 
-namespace ClickIt.Components {
+namespace ClickIt {
     [AddComponentMenu("ClickIt/BasicClickableObject")]
-    public class BasicClickableObject : Interactable, ILeftClick, IRightClick, IMiddleClick {
+    public class BasicClickableObject : ValidatedObject, IInteractableObject, ILeftClick, IRightClick, IMiddleClick {
         [SerializeField] private UnityEvent onLeftClick;
         [SerializeField] private UnityEvent onRightClick;
         [SerializeField] private UnityEvent onMiddleClick;
 
-        private event Action<MouseButton> OnClickCode;
-        
-        public void AddCallback(Action<MouseButton> callback) {
-            OnClickCode += callback;
+        private Dictionary<MouseButton, List<Action>> callbacks = new();
+
+        private void Awake() {
+            callbacks[MouseButton.left] = new List<Action>();
+            callbacks[MouseButton.right] = new List<Action>();
+            callbacks[MouseButton.middle] = new List<Action>();
         }
+
         public void AddCallback(MouseButton button, Action callback) {
-            OnClickCode += (mouseButton) => {
-                if (mouseButton == button) {
-                    callback?.Invoke();
+            if (callback == null) return;
+
+            foreach (MouseButton flag in Enum.GetValues(typeof(MouseButton))) {
+                if ((button & flag) != 0 && callbacks.ContainsKey(flag)) {
+                    callbacks[flag].Add(callback);
                 }
-            };
+            }
         }
-        public void RemoveCallback(Action<MouseButton> callback) {
-            OnClickCode -= callback;
+
+        public void RemoveCallback(MouseButton button, Action callback) {
+            foreach (MouseButton flag in Enum.GetValues(typeof(MouseButton))) {
+                if ((button & flag) != 0 && callbacks.ContainsKey(flag)) {
+                    callbacks[flag].Remove(callback);
+                }
+            }
+        }
+
+        public bool HasCallback(MouseButton button, Action callback) {
+            foreach (MouseButton flag in Enum.GetValues(typeof(MouseButton))) {
+                if ((button & flag) != 0 && callbacks.ContainsKey(flag)) {
+                    if (callbacks[flag].Contains(callback)) return true;
+                }
+            }
+            return false;
+        }
+
+        public void ClearCallbacks(MouseButton button) {
+            foreach (MouseButton flag in Enum.GetValues(typeof(MouseButton))) {
+                if ((button & flag) != 0 && callbacks.ContainsKey(flag)) {
+                    callbacks[flag].Clear();
+                }
+            }
+        }
+
+        public void ClearAllCallbacks() {
+            foreach (var list in callbacks.Values) {
+                list.Clear();
+            }
         }
 
         public void DoLeftClick() {
-            onLeftClick.Invoke();
-            OnClickCode?.Invoke(MouseButton.left);
+            onLeftClick?.Invoke();
+            InvokeCallbacks(MouseButton.left);
         }
 
         public void DoRightClick() {
-            onRightClick.Invoke();
-            OnClickCode?.Invoke(MouseButton.right);
+            onRightClick?.Invoke();
+            InvokeCallbacks(MouseButton.right);
         }
 
         public void DoMiddleClick() {
-            onMiddleClick.Invoke();
-            OnClickCode?.Invoke(MouseButton.middle);
+            onMiddleClick?.Invoke();
+            InvokeCallbacks(MouseButton.middle);
+        }
+
+        private void InvokeCallbacks(MouseButton button) {
+            if (callbacks.TryGetValue(button, out var list)) {
+                foreach (var callback in list) {
+                    callback?.Invoke();
+                }
+            }
         }
     }
 }

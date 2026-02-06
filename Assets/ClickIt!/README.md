@@ -70,6 +70,7 @@ The easiest way to detect a "click off" of a GameObject. For these events to tri
 ### Clickable Object
 A more customizable way to detect mouse clicks on GameObjects.
 **Inspector Options:**
+- `Enabled` - If the event should trigger
 - `Label (Optional)` - An optional label for organization
 - `Mouse Button(s)` - Which button triggers the event
 - `OnClickEvent()` - UnityEvent with methods to be triggered
@@ -81,6 +82,7 @@ A more customizable way to detect mouse clicks on GameObjects.
 ### Releasable Object
 A more customizable way to detect mouse releases for GameObjects.
 **Inspector Options:**
+- `Enabled` - If the event should trigger
 - `Label (Optional)` - An optional label for organization
 - `Mouse Button(s)` - Which button releasing triggers the event
 - `OnReleaseEvent()` - UnityEvent with methods to be triggered
@@ -92,6 +94,7 @@ A more customizable way to detect mouse releases for GameObjects.
 ### Click Away Object
 A more customizable way to detect a "click off" of a GameObject. For these events to trigger, the object must be clicked on with the corresponding button, then after the button is released, if the mouse clicks anywhere except on the GameObject, the event will trigger.
 **Inspector Options:**
+- `Enabled` - If the event should trigger
 - `Label (Optional)` - An optional label for organization
 - `Mouse Button(s)` - Which button triggers the event
 - `OnReleaseEvent()` - UnityEvent with methods to be triggered
@@ -103,9 +106,12 @@ A more customizable way to detect a "click off" of a GameObject. For these event
 ---
 
 ## 💡 Example Scenes
+Each sample scene has the following 8 buttons showcasing common setups/use cases:
+- Button 1: Basic click interactions
 
-**Location:** `Assets/ClickIt/Sample Scenes/3D Example Scene/`
 
+**3D Location:** `Assets/ClickIt/Sample Scenes/3D Example Scene/`
+**2D Location:** `Assets/ClickIt/Sample Scenes/3D Example Scene/`
 ---
 
 ## 🛠️ Advanced Usage

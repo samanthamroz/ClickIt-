@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using ClickIt.Backend;
 
 namespace ClickIt.Editor {
 

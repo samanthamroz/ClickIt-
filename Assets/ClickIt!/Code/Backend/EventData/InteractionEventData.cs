@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
-namespace ClickIt.Backend {
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ClickIt {
     [Serializable]
     public class InteractionEventData {
         [SerializeField] private string optionalLabel;
@@ -12,8 +15,10 @@ namespace ClickIt.Backend {
         [SerializeField] private float bufferTime;
         [SerializeField] private float delay;
         [SerializeField] private bool enabled = true;
-        [HideInInspector] [SerializeField] private float lastTriggerTime;
-        
+        [HideInInspector][SerializeField] private float lastTriggerTime;
+
+        private List<Action> codeCallbacks = new List<Action>();
+
         public string Label => optionalLabel;
         public MouseButton Buttons => buttons;
         public float Cooldown => cooldown;
@@ -33,6 +38,7 @@ namespace ClickIt.Backend {
         public InteractionEventData() {
             enabled = true;
             buttons = MouseButton.left;
+            codeCallbacks = new List<Action>();
         }
 
         internal InteractionEventData SetLabel(string label) {
@@ -66,19 +72,29 @@ namespace ClickIt.Backend {
         }
 
         internal InteractionEventData SetEnabled(bool isEnabled) {
-            if (!enabled && isEnabled) ResetTriggerTime();;
+            if (!enabled && isEnabled) ResetTriggerTime();
             enabled = isEnabled;
             return this;
         }
 
         internal void AddCallback(Action callback) {
-            if (evt == null) evt = new UnityEvent();
-            evt.AddListener(() => callback());
+            if (callback == null) return;
+            codeCallbacks.Add(callback);
         }
 
-        internal void RemoveCallback(Action callback) {
-            evt?.RemoveListener(() => callback());
+        internal bool RemoveCallback(Action callback) {
+            return codeCallbacks.Remove(callback);
         }
+
+        internal bool HasCallback(Action callback) {
+            return codeCallbacks.Contains(callback);
+        }
+
+        internal void ClearCallbacks() {
+            codeCallbacks.Clear();
+        }
+
+        internal int CallbackCount => codeCallbacks.Count;
 
         public bool HasButton(MouseButton button) {
             return (buttons & button) != 0;
@@ -91,6 +107,9 @@ namespace ClickIt.Backend {
         internal void TriggerEvent() {
             ResetTriggerTime();
             evt?.Invoke();
+            foreach (var callback in codeCallbacks) {
+                callback?.Invoke();
+            }
         }
     }
 

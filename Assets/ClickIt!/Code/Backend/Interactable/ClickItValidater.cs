@@ -3,7 +3,7 @@ namespace ClickIt.Backend {
     public class ClickItValidater : IValidater {
         public void ValidateScene() {
             if (Camera.main == null) {
-                Debug.LogError("[ClickIt] No main camera found. Ensure your scene has a camera tagged 'MainCamera'.");
+                Debug.LogError("[ClickIt!] No main camera found. Ensure your scene has a camera tagged 'MainCamera'.");
             }
 
             if (!AllInteractablesValid()) {
@@ -12,7 +12,7 @@ namespace ClickIt.Backend {
         }
         private bool AllInteractablesValid() {
             foreach (MonoBehaviour mb in GameObject.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)) {
-                if (mb is IInteractable interactable) {
+                if (mb is IValidatedObject interactable) {
                     if (!interactable.ValidInteractableConfiguration()) {
                         return false;
                     }

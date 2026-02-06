@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
+using ClickIt.Backend;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using ClickIt.Backend;
-using UnityEngine.EventSystems;
 
 namespace ClickIt {
     [RequireComponent(typeof(PlayerInput))]
@@ -101,15 +100,15 @@ namespace ClickIt {
                     break;
             }
         }
-        public IInteractable[] GetInteractableAtPosition(Vector2 screenPosition) {
+        public IValidatedObject[] GetInteractableAtPosition(Vector2 screenPosition) {
             return raycaster.GetInteractablesAtPosition(screenPosition);
         }
 
         //Delay
-        public void DoDelayedAction(Action delayedAction, float timeToDelaySeconds) {
+        internal void DoDelayedAction(Action delayedAction, float timeToDelaySeconds) {
             StartCoroutine(DelayedAction(delayedAction, timeToDelaySeconds));
         }
-        private IEnumerator DelayedAction(Action delayedAction, float timeToDelaySeconds) {
+        internal IEnumerator DelayedAction(Action delayedAction, float timeToDelaySeconds) {
             yield return new WaitForSeconds(timeToDelaySeconds);
             delayedAction();
         }

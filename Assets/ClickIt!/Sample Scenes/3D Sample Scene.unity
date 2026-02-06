@@ -3387,7 +3387,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -3533,7 +3533,7 @@ MonoBehaviour:
   green: {r: 0.5176471, g: 1, b: 0.39607847, a: 1}
   red: {r: 1, g: 0.39607847, b: 0.5882353, a: 1}
   stoplight: {fileID: 1663929367}
-  reactionForgivenessSeconds: 0.3
+  reactionForgivenessSeconds: 0.5
 --- !u!114 &6010781296914919092
 MonoBehaviour:
   m_ObjectHideFlags: 0
