@@ -106,9 +106,8 @@ A more customizable way to detect a "click off" of a GameObject. For these event
 ---
 
 ## 💡 Example Scenes
-Each sample scene has 8 buttons showcasing common setups/use cases.
+Each sample scene has the following 8 buttons showcasing common setups/use cases:
 
-**Examples available:**
 ### Button 1: Basic click interactions
 
 Using the `BasicClickableObject` component, increments a counter on left click and decrements it on right click.
