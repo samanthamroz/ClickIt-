@@ -70,6 +70,7 @@ The easiest way to detect a "click off" of a GameObject. For these events to tri
 ### Clickable Object
 A more customizable way to detect mouse clicks on GameObjects.
 **Inspector Options:**
+- `Enabled` - If the event should trigger
 - `Label (Optional)` - An optional label for organization
 - `Mouse Button(s)` - Which button triggers the event
 - `OnClickEvent()` - UnityEvent with methods to be triggered
@@ -81,6 +82,7 @@ A more customizable way to detect mouse clicks on GameObjects.
 ### Releasable Object
 A more customizable way to detect mouse releases for GameObjects.
 **Inspector Options:**
+- `Enabled` - If the event should trigger
 - `Label (Optional)` - An optional label for organization
 - `Mouse Button(s)` - Which button releasing triggers the event
 - `OnReleaseEvent()` - UnityEvent with methods to be triggered
@@ -92,6 +94,7 @@ A more customizable way to detect mouse releases for GameObjects.
 ### Click Away Object
 A more customizable way to detect a "click off" of a GameObject. For these events to trigger, the object must be clicked on with the corresponding button, then after the button is released, if the mouse clicks anywhere except on the GameObject, the event will trigger.
 **Inspector Options:**
+- `Enabled` - If the event should trigger
 - `Label (Optional)` - An optional label for organization
 - `Mouse Button(s)` - Which button triggers the event
 - `OnReleaseEvent()` - UnityEvent with methods to be triggered
@@ -103,9 +106,18 @@ A more customizable way to detect a "click off" of a GameObject. For these event
 ---
 
 ## 💡 Example Scenes
+Each sample scene has the following 8 buttons showcasing common setups/use cases:
+- Button 1: Basic click interactions
+Using the `BasicClickableObject` component, increments a counter on left click and decrements a counter on right click.
+- Button 2: Combining basic click, release, and click away functionality
+Using the `BasicClickableObject`, `BasicReleaseableObject`, and `BasicClickAwayObject` components:
+    - begins an automatically-incrementing counter on left click
+    - begins an automatically-decrementing counter on left release
+    - stops the counter from moving up or down on left click away
 
-**Location:** `Assets/ClickIt/Sample Scenes/3D Example Scene/`
 
+*3D Location:* `Assets/ClickIt/Sample Scenes/3D Example Scene/`
+*2D Location:* `Assets/ClickIt/Sample Scenes/3D Example Scene/`
 ---
 
 ## 🛠️ Advanced Usage
@@ -179,8 +191,11 @@ Full documentation available at: [Your Documentation Link]
 Need help? Got feedback?
 
 - **Email:** [hello@latticegameworks.com]
-- **Discord:** [Discord](https://discord.gg/cECsC42taf)
+- **Discord:** [Your Discord Server]
+- **Forum:** [Asset Store Forum Thread]
 - **Bug Reports:** [hello@latticegameworks.com]
+
+**Response Time:** Usually within 24 hours
 
 ---
 
@@ -202,19 +217,19 @@ Need help? Got feedback?
 
 ## 📜 License
 
-_ClickIt!_ is licensed under the Unity Asset Store Standard End User License Agreement (EULA).
+ClickIt! is licensed under the Unity Asset Store EULA.
 
-By downloading, installing, or using this asset, you agree to be bound by the terms of the Unity Asset Store Standard EULA.
+You may use this package in:
+- ✅ Commercial projects
+- ✅ Free projects
+- ✅ Game jams
+- ✅ Educational projects
 
-The full license text is available [here](https://unity.com/legal/as-terms).
+You may NOT:
+- ❌ Resell or redistribute the source code
+- ❌ Claim it as your own work
 
-EULA Summary (for convenience only):
-- ✅ You may use and modify this asset in personal, educational, and commercial projects.
-- ❌ You may not redistribute, resell, sublicense, or make this asset available as a standalone product or package.
-- ❌ You may not claim this asset as your own work.
-
-Copyright © 2026 Lattice Gameworks
-All rights reserved
+See [LICENSE](LICENSE) for full details.
 
 ---
 
@@ -222,4 +237,9 @@ All rights reserved
 
 - Leave a review on the Asset Store
 - Share it with fellow developers
-- Join our community on [Discord](https://discord.gg/cECsC42taf)
+- Join our community on [Discord/Forum]
+- Check out our other tools: [DragIt!](link) | [SaveIt!](link)
+
+---
+
+**Made with ❤️ for game developers who just want to make games.**
