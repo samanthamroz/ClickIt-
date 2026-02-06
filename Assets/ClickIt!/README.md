@@ -107,11 +107,17 @@ A more customizable way to detect a "click off" of a GameObject. For these event
 
 ## 💡 Example Scenes
 Each sample scene has the following 8 buttons showcasing common setups/use cases:
-- Button 1: Basic click interactionsddd
+- Button 1: Basic click interactions
+Using the `BasicClickableObject` component, increments a counter on left click and decrements a counter on right click.
+- Button 2: Combining basic click, release, and click away functionality
+Using the `BasicClickableObject`, `BasicReleaseableObject`, and `BasicClickAwayObject` components:
+    - begins an automatically-incrementing counter on left click
+    - begins an automatically-decrementing counter on left release
+    - stops the counter from moving up or down on left click away
 
 
-**3D Location:** `Assets/ClickIt/Sample Scenes/3D Example Scene/`
-**2D Location:** `Assets/ClickIt/Sample Scenes/3D Example Scene/`
+*3D Location:* `Assets/ClickIt/Sample Scenes/3D Example Scene/`
+*2D Location:* `Assets/ClickIt/Sample Scenes/3D Example Scene/`
 ---
 
 ## 🛠️ Advanced Usage
