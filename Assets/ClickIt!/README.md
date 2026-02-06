@@ -16,7 +16,7 @@ _ClickIt!_ is a Unity package that eliminates the tedious setup time for mouse i
 - **Zero Setup** - No scene configuration, no managers, no prefabs to drag in
 - **Component-Based** - Just attach components to GameObjects in the Inspector
 - **No Coding Required** - Use the familiar interface of Unity Events to connect functions to clicks
-- **Beginner-Friendly Documentation** - Example scenes, video walkthroughs, and comprehensive documentation
+- **Beginner-Friendly Documentation** - 2 full example scenes and comprehensive online documentation
 - **Game Jam Ready** - Start prototyping in minutes, not hours
 
 ---
@@ -106,14 +106,32 @@ A more customizable way to detect a "click off" of a GameObject. For these event
 ---
 
 ## 💡 Example Scenes
-Each sample scene has the following 8 buttons showcasing common setups/use cases:
+Each sample scene has 8 buttons showcasing common setups/use cases.
+
+**Examples available:**
 - Button 1: Basic click interactions
-Using the `BasicClickableObject` component, increments a counter on left click and decrements a counter on right click.
+Using the `BasicClickableObject` component, increments a counter on left click and decrements it on right click.
 - Button 2: Combining basic click, release, and click away functionality
 Using the `BasicClickableObject`, `BasicReleaseableObject`, and `BasicClickAwayObject` components:
     - begins an automatically-incrementing counter on left click
     - begins an automatically-decrementing counter on left release
     - stops the counter from moving up or down on left click away
+- Button 3: Using mouse information in scripts
+Using the `BasicClickableObject` and `BasicReleaseableObject`, moves the object with the mouse on click and snaps back to position on release.
+- Button 4: Subscribing to basic components in code
+Using the `BasicClickableObject` component, increments a counter until hitting the cap of 20 on left click and decrements it on right click. The left click functionality is added in the `Start()` method of `CappedCounter.cs`.
+- Button 5: Using timing parameters on advanced components
+Using the `ClickableObject` component, increments a counter on left click and spawns an object after a 1 second delay, creating a game where you must click as much as possible before the objects start falling down and decrementing the counter.
+- Button 6: Using the cooldown, timeout, and buffer timing parameters
+Using the `ClickableObject` component, creates a rhythm game where the player must click when the cooldown is up but the timeout has been reached yet, incrementing a counter each time they are succesfully in the "green" zone. The star on the slider shows the different timing parameters:
+    - Blue: In cooldown
+    - Yellow: In "buffer zone" (inputs registered but event not triggered until cooldown is up)
+    - Green: Cooldown is up
+    - Red: Timeout occurred
+- Button 7: Subscribing to advanced components in code
+Using the `ClickableObject` component, increments a counter on left click with an increasingly long delay. The left click functionality is added in the `Start()` method of `SlowingCappedCounter.cs`.
+- Button 8: Adding and adjusting timing parameters in code
+Using the `ClickableObject` component, creates a reaction-time game where the player must wait for the cooldown to be up and click before timeout occurs. The cooldown is set randomly each time in `ExponentialCounterAndChangeCooldown()` within `ControlReactionTimeGame.cs`.
 
 
 *3D Location:* `Assets/ClickIt/Sample Scenes/3D Example Scene/`
@@ -124,43 +142,7 @@ Using the `BasicClickableObject`, `BasicReleaseableObject`, and `BasicClickAwayO
 
 ### Accessing Components via Code
 
-While ClickIt! is designed for no-code use, you can access components programmatically:
-```csharp
-using ClickIt;
-
-public class MyScript : MonoBehaviour
-{
-    private Clickable clickable;
-    
-    void Start()
-    {
-        clickable = GetComponent();
-        
-        // Subscribe to click events in code
-        clickable.OnClick.AddListener(HandleClick);
-    }
-    
-    void HandleClick()
-    {
-        Debug.Log("Object was clicked!");
-    }
-}
-```
-
-### Custom Click Conditions
-```csharp
-// You can add custom logic by subscribing to events
-clickable.OnClick.AddListener(() => {
-    if (InventoryHasKey())
-    {
-        OpenDoor();
-    }
-    else
-    {
-        ShowMessage("You need a key!");
-    }
-});
-```
+While ClickIt! is designed for no-code use, you can access and manipulate components programmatically. Comprehensive documentation is available [here](https://www.latticegameworks.com/clickit/docs).
 
 ---
 
@@ -178,11 +160,7 @@ clickable.OnClick.AddListener(() => {
 
 ## 📚 Documentation
 
-Full documentation available at: [Your Documentation Link]
-
-- [API Reference](link)
-- [Video Tutorials](link)
-- [Best Practices Guide](link)
+Full documentation available at: [https://www.latticegameworks.com/clickit/docs]
 
 ---
 
@@ -191,33 +169,16 @@ Full documentation available at: [Your Documentation Link]
 Need help? Got feedback?
 
 - **Email:** [hello@latticegameworks.com]
-- **Discord:** [Your Discord Server]
-- **Forum:** [Asset Store Forum Thread]
+- **Discord:** [https://discord.gg/cECsC42taf]
 - **Bug Reports:** [hello@latticegameworks.com]
 
 **Response Time:** Usually within 24 hours
 
 ---
 
-## 🎓 Learning Resources
-
-### For Beginners
-- [Getting Started Video (5 min)](link)
-- [Building Your First Interactive Scene (10 min)](link)
-
-### For Intermediate Users
-- [Advanced Patterns & Best Practices](link)
-- [Integrating with Existing Systems](link)
-
-### For Game Jam Participants
-- [Quick Setup Checklist](link)
-- [Common Game Jam Patterns](link)
-
----
-
 ## 📜 License
 
-ClickIt! is licensed under the Unity Asset Store EULA.
+ClickIt! is licensed under the Unity Asset Store EULA. In short:
 
 You may use this package in:
 - ✅ Commercial projects
@@ -229,17 +190,10 @@ You may NOT:
 - ❌ Resell or redistribute the source code
 - ❌ Claim it as your own work
 
-See [LICENSE](LICENSE) for full details.
-
 ---
 
 ## ⭐ If You Like ClickIt!
 
 - Leave a review on the Asset Store
 - Share it with fellow developers
-- Join our community on [Discord/Forum]
-- Check out our other tools: [DragIt!](link) | [SaveIt!](link)
-
----
-
-**Made with ❤️ for game developers who just want to make games.**
+- Join our Discord community at [https://discord.gg/cECsC42taf]
