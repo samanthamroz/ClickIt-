@@ -44,6 +44,8 @@ namespace ClickIt.Editor {
             if (expanded) {
                 EditorGUI.indentLevel++;
 
+                DrawEnabledBox(ref y, content, property);
+
                 DrawOptionaLabelField(ref y, content, optionalLabel);
 
                 DrawMouseButtonBoxes(ref y, content, property);
@@ -74,11 +76,18 @@ namespace ClickIt.Editor {
             y += line;
             EditorGUI.indentLevel++;
             int value = buttons.intValue;
-            DrawButton(ref y, rect, "Left", MouseButton.left, ref value);
-            DrawButton(ref y, rect, "Middle", MouseButton.middle, ref value);
-            DrawButton(ref y, rect, "Right", MouseButton.right, ref value);
+            DrawMouseCheckbox(ref y, rect, "Left", MouseButton.left, ref value);
+            DrawMouseCheckbox(ref y, rect, "Middle", MouseButton.middle, ref value);
+            DrawMouseCheckbox(ref y, rect, "Right", MouseButton.right, ref value);
             buttons.intValue = value;
             EditorGUI.indentLevel--;
+            y += Spacing;
+        }
+        private void DrawEnabledBox(ref float y, Rect rect, SerializedProperty prop) {
+            SerializedProperty enabled = prop.FindPropertyRelative("enabled");
+            bool value = enabled.boolValue;
+            DrawCheckbox(ref y, rect, "Enabled", enabled, ref value);
+            enabled.boolValue = value;
             y += Spacing;
         }
         private void DrawEvents(ref float y, Rect rect, SerializedProperty prop, string interactionType) {
@@ -104,14 +113,14 @@ namespace ClickIt.Editor {
             SerializedProperty timeout = prop.FindPropertyRelative("timeout");
 
             DrawRightAlignedPositiveFloat(ref y, rect, delay, "Delay (seconds)");
+            DrawRightAlignedPositiveFloat(ref y, rect, timeout, "Timeout (seconds)");
             DrawRightAlignedPositiveFloat(ref y, rect, cooldown, "Cooldown (seconds)");
             if (cooldown.floatValue > 0f) {
                 DrawRightAlignedPositiveFloat(ref y, rect, buffer, "Buffer (seconds)");
-                DrawRightAlignedPositiveFloat(ref y, rect, timeout, "Timeout (seconds)");
             }
         }
 
-        private void DrawButton(ref float y, Rect rect, string label, MouseButton button, ref int value) {
+        private void DrawMouseCheckbox(ref float y, Rect rect, string label, MouseButton button, ref int value) {
             bool has = (value & (int)button) != 0;
             bool next = EditorGUI.ToggleLeft(
                 new Rect(rect.x, y, rect.width, EditorGUIUtility.singleLineHeight),
@@ -126,6 +135,22 @@ namespace ClickIt.Editor {
 
             y += EditorGUIUtility.singleLineHeight;
         }
+
+        private void DrawCheckbox(ref float y, Rect rect, string label, SerializedProperty prop, ref bool value) {
+            bool has = prop.boolValue;
+            bool next = EditorGUI.ToggleLeft(
+                new Rect(rect.x, y, rect.width, EditorGUIUtility.singleLineHeight),
+                label,
+                has
+            );
+
+            if (next != has) {
+                value = next;
+            }
+
+            y += EditorGUIUtility.singleLineHeight;
+        }
+
         private void DrawRightAlignedPositiveFloat(ref float y, Rect rect, SerializedProperty prop, string label) {
             float line = EditorGUIUtility.singleLineHeight;
 
@@ -164,6 +189,7 @@ namespace ClickIt.Editor {
             h += line + Spacing;      // header
             h += line + Spacing;      // label
             h += line * 4;            // mouse buttons
+            h += line + Spacing;      // enabled
             h += Spacing;
 
             SerializedProperty evt = property.FindPropertyRelative("evt");
@@ -171,12 +197,12 @@ namespace ClickIt.Editor {
 
             h += line + Spacing;      // timing header
             h += line + Spacing;      // delay
+            h += line + Spacing;  // timeout
             h += line + Spacing;      // cooldown
 
             SerializedProperty cooldown = property.FindPropertyRelative("cooldown");
             if (cooldown.floatValue > 0f) {
                 h += line + Spacing;  // buffer
-                h += line + Spacing;  // timeout
             }
 
             return h;
@@ -187,6 +213,26 @@ namespace ClickIt.Editor {
             return $"ClickIt_Foldout_{property.serializedObject.targetObject.GetInstanceID()}_{property.propertyPath}";
         }
     }
-#endif
 
+    [CustomPropertyDrawer(typeof(ClickEventData))]
+    public class ClickEventDataDrawer : EventDataDrawer {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+            DrawGUI(position, property, label, "Click");
+        }
+    }
+
+    [CustomPropertyDrawer(typeof(ReleaseEventData))]
+    public class ReleaseEventDataDrawer : EventDataDrawer {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+            DrawGUI(position, property, label, "Release");
+        }
+    }
+
+    [CustomPropertyDrawer(typeof(ClickAwayEventData))]
+    public class ClickAwayEventDataDrawer : EventDataDrawer {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+            DrawGUI(position, property, label, "ClickAway");
+        }
+    }
 }
+#endif

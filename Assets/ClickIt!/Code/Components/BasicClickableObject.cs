@@ -11,10 +11,18 @@ namespace ClickIt.Components {
         [SerializeField] private UnityEvent onMiddleClick;
 
         private event Action<MouseButton> OnClickCode;
-        public void AddClickListener(Action<MouseButton> callback) {
+        
+        public void AddCallback(Action<MouseButton> callback) {
             OnClickCode += callback;
         }
-        public void RemoveClickListener(Action<MouseButton> callback) {
+        public void AddCallback(MouseButton button, Action callback) {
+            OnClickCode += (mouseButton) => {
+                if (mouseButton == button) {
+                    callback?.Invoke();
+                }
+            };
+        }
+        public void RemoveCallback(Action<MouseButton> callback) {
             OnClickCode -= callback;
         }
 

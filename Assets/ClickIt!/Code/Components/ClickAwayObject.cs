@@ -7,6 +7,7 @@ namespace ClickIt.Components {
     [AddComponentMenu("ClickIt/ClickAwayObject")]
     public class ClickAwayObject : Interactable, ILeftClickAway, IRightClickAway, IMiddleClickAway {
         [SerializeField] private List<ClickAwayEventData> clickAwayEvents;
+        private List<ClickAwayEventData> codeClickAwayEvents;
         private readonly InteractionEventHandler<ClickAwayEventData> eventHandler = new();
 
         private event Action<MouseButton> OnClickAwayCode;
@@ -31,5 +32,7 @@ namespace ClickIt.Components {
             eventHandler.ProcessEventsForButton(clickAwayEvents, MouseButton.right);
             OnClickAwayCode?.Invoke(MouseButton.right);
         }
+
+        
     }
 }

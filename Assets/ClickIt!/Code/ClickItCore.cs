@@ -36,7 +36,7 @@ namespace ClickIt {
             raycaster = new InteractableRaycaster(); 
             router = new MouseButtonRouter(raycaster);
 
-            InputActionAsset inputActions = Resources.Load<InputActionAsset>("ClickItInputActions");
+            InputActionAsset inputActions = Resources.Load<InputActionAsset>("ClickIt!_InputActions");
             mouseController = new MouseController(router, mouse, inputActions);
 
             DoSceneStart();

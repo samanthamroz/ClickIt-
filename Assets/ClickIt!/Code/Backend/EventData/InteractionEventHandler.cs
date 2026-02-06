@@ -1,24 +1,26 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using UnityEngine;
 
 namespace ClickIt.Backend {
     public class InteractionEventHandler<TEventData> where TEventData : InteractionEventData {
         public void ProcessEventsForButton(List<TEventData> events, MouseButton button) {
-            foreach (var eventData in events) {
-                if (!eventData.HasButton(button)) continue;
+            var eventsToProcess = events
+                    .Where(e => e.Enabled && e.HasButton(button) && !e.IsInTimeout)
+                    .ToList();
+
+            foreach (var eventData in eventsToProcess) {
+                float timeSinceLastTrigger = Time.time - eventData.LastTriggerTime;
 
                 //event has no cooldown
-                if (eventData.cooldown == 0) {
+                if (eventData.Cooldown == 0) {
                     ExecuteEventWithDelayCheck(eventData);
                     continue;
                 }
 
-                //event has cooldown
-                float timeSinceLastTrigger = Time.time - eventData.lastTriggerTime;
-                if (timeSinceLastTrigger < eventData.cooldown) {
-                    //cooldown not up
-                    if (timeSinceLastTrigger >= (eventData.cooldown - eventData.bufferTime)) {
+                if (eventData.IsInCooldown) {
+                    if (eventData.IsInBuffer) {
                         QueueCooldownTrigger(eventData, timeSinceLastTrigger);
                     }
                     continue;
@@ -29,8 +31,8 @@ namespace ClickIt.Backend {
         }
 
         private void ExecuteEventWithDelayCheck(TEventData eventData) {
-            if (eventData.delay > 0) {
-                ClickItCore.Instance.DoDelayedAction(eventData.TriggerEvent, eventData.delay);
+            if (eventData.Delay > 0) {
+                ClickItCore.Instance.DoDelayedAction(eventData.TriggerEvent, eventData.Delay);
             }
             else {
                 eventData.TriggerEvent();
@@ -38,11 +40,11 @@ namespace ClickIt.Backend {
         }
 
         private void QueueCooldownTrigger(TEventData eventData, float timeSinceLastTrigger) {
-            float timeInCooldownRemaining = eventData.cooldown - timeSinceLastTrigger;
+            float timeInCooldownRemaining = eventData.Cooldown - timeSinceLastTrigger;
 
             ClickItCore.Instance.DoDelayedAction(() => {
-                float newTimeSinceLastTrigger = Time.time - eventData.lastTriggerTime;
-                if (newTimeSinceLastTrigger >= eventData.cooldown) {
+                float newTimeSinceLastTrigger = Time.time - eventData.LastTriggerTime;
+                if (newTimeSinceLastTrigger >= eventData.Cooldown) {
                     ExecuteEventWithDelayCheck(eventData);
                 }
             }, timeInCooldownRemaining);

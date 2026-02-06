@@ -1,13 +1,14 @@
+using System.Collections;
+using ClickIt.Components;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ClickIt.Samples {
-    public class MyObject : MonoBehaviour {
+    public class ClickAndReleaseCube : MonoBehaviour {
         [SerializeField] Material blue;
         [SerializeField] Material red;
         [SerializeField] Material yellow;
-        public void Spin(int direction = 1) {
-            GetComponent<Rigidbody>().AddTorque(5f * direction * Vector3.up, ForceMode.Impulse);
-        }
+
         public void BecomeBlue() {
             GetComponent<Renderer>().material = blue;
         }
