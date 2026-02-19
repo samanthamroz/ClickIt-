@@ -1,5 +1,5 @@
 namespace ClickIt.Backend {
-    public interface IValidatedObject {
+    internal interface IValidatedObject {
         public bool ValidInteractableConfiguration();
     }
 }

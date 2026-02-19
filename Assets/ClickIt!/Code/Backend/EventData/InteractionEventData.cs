@@ -112,8 +112,7 @@ namespace ClickIt {
             }
         }
     }
-
-    [Serializable] public class ClickEventData : InteractionEventData { }
-    [Serializable] public class ReleaseEventData : InteractionEventData { }
-    [Serializable] public class ClickAwayEventData : InteractionEventData { }
+    [Serializable] internal class ClickEventData : InteractionEventData { }
+    [Serializable] internal class ReleaseEventData : InteractionEventData { }
+    [Serializable] internal class ClickAwayEventData : InteractionEventData { }
 }

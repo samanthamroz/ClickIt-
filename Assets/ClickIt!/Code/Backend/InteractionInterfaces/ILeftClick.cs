@@ -1,5 +1,5 @@
 namespace ClickIt.Backend {
-    public interface ILeftClick {
+    internal interface ILeftClick {
         public void DoLeftClick();
     }
 }

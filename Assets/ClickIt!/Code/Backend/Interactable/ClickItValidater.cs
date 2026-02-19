@@ -1,6 +1,6 @@
 using UnityEngine;
 namespace ClickIt.Backend {
-    public class ClickItValidater : IValidater {
+    internal class ClickItValidater : IValidater {
         public void ValidateScene() {
             if (Camera.main == null) {
                 Debug.LogError("[ClickIt!] No main camera found. Ensure your scene has a camera tagged 'MainCamera'.");

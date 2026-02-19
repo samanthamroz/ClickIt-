@@ -154,7 +154,7 @@
        y="0" />
     <path
        sodipodi:type="star"
-       style="display:none;mix-blend-mode:color-dodge;fill:#ffff66;fill-opacity:0.5;stroke:none;stroke-width:2.3;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"
+       style="display:inline;mix-blend-mode:color-dodge;fill:#ffff66;fill-opacity:0.5;stroke:none;stroke-width:2.3;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"
        id="path1"
        inkscape:flatsided="false"
        sodipodi:sides="5"
@@ -280,7 +280,7 @@
        transform="matrix(0.75096278,0.2807857,-0.2807857,0.75096278,337.39132,77.258678)" />
     <path
        sodipodi:type="star"
-       style="display:none;mix-blend-mode:color-dodge;fill:#ffff66;fill-opacity:0.5;stroke:none;stroke-width:2.3;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"
+       style="display:inline;mix-blend-mode:color-dodge;fill:#ffff66;fill-opacity:0.5;stroke:none;stroke-width:2.3;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"
        id="path1-8-4-6-4-0-0-7"
        inkscape:flatsided="false"
        sodipodi:sides="5"
@@ -308,11 +308,11 @@
        style="font-size:48px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:center;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#ffff66;fill-opacity:1;stroke:none;stroke-width:8.69291;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"><tspan
          x="87.163086"
          y="661.25126"
-         id="tspan2">Basic click
+         id="tspan1">Basic click
 </tspan><tspan
          x="69.479492"
          y="709.25126"
-         id="tspan5">interactions</tspan></text>
+         id="tspan3">interactions</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,49.766779,-128.47844)"
@@ -320,16 +320,16 @@
        style="font-size:48px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:center;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2-6);display:inline;fill:#ffff66;fill-opacity:1;stroke:none;stroke-width:8.69291;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"><tspan
          x="90.280273"
          y="661.25126"
-         id="tspan37">Combining </tspan><tspan
+         id="tspan4">Combining </tspan><tspan
          x="55.592773"
          y="709.25126"
-         id="tspan38">click, release, </tspan><tspan
+         id="tspan5">click, release, </tspan><tspan
          x="105.85449"
          y="757.25126"
-         id="tspan39">and click </tspan><tspan
+         id="tspan6">and click </tspan><tspan
          x="143.6709"
          y="805.25126"
-         id="tspan40">away</tspan></text>
+         id="tspan7">away</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,110.37365,21.498736)"
@@ -337,16 +337,16 @@
        style="font-size:48px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:center;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2-4);display:inline;fill:#ffff66;fill-opacity:1;stroke:none;stroke-width:8.69291;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"><tspan
          x="64.709961"
          y="661.25126"
-         id="tspan41">Using mouse </tspan><tspan
+         id="tspan8">Using mouse </tspan><tspan
          x="50.155273"
          y="709.25126"
-         id="tspan42">information in </tspan><tspan
+         id="tspan9">information in </tspan><tspan
          x="135.0459"
          y="757.25126"
-         id="tspan43">object </tspan><tspan
+         id="tspan10">object </tspan><tspan
          x="94.81543"
          y="805.25126"
-         id="tspan44">behaviors</tspan></text>
+         id="tspan11">behaviors</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,169.41713,-128.47872)"
@@ -354,17 +354,17 @@
        style="font-size:48px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:center;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2-4-3);display:inline;fill:#ffff66;fill-opacity:1;stroke:none;stroke-width:8.69291;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"><tspan
          x="73.393555"
          y="661.25126"
-         id="tspan45">Subscribing </tspan><tspan
+         id="tspan12">Subscribing </tspan><tspan
          x="113.71777"
          y="709.25126"
-         id="tspan46">to basic </tspan><tspan
+         id="tspan13">to basic </tspan><tspan
          x="68.987305"
          y="757.25126"
-         id="tspan47">components
+         id="tspan14">components
 </tspan><tspan
          x="125.26074"
          y="805.25126"
-         id="tspan48">in code</tspan></text>
+         id="tspan15">in code</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,289.22028,-128.47845)"
@@ -372,16 +372,16 @@
        style="font-size:48px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:center;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2-4-3-5);display:inline;fill:#ffff66;fill-opacity:1;stroke:none;stroke-width:8.69291;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"><tspan
          x="142.27637"
          y="661.25126"
-         id="tspan49">Using </tspan><tspan
+         id="tspan16">Using </tspan><tspan
          x="92.272461"
          y="709.25126"
-         id="tspan50">cooldown, </tspan><tspan
+         id="tspan17">cooldown, </tspan><tspan
          x="81.209961"
          y="757.25126"
-         id="tspan51">buffer, and </tspan><tspan
+         id="tspan18">buffer, and </tspan><tspan
          x="119.65918"
          y="805.25126"
-         id="tspan52">timeout</tspan></text>
+         id="tspan19">timeout</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,351.13045,21.49855)"
@@ -389,13 +389,13 @@
        style="font-size:48px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:center;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2-4-3-5-2);display:inline;fill:#ffff66;fill-opacity:1;stroke:none;stroke-width:8.69291;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"><tspan
          x="58.756836"
          y="661.25126"
-         id="tspan53">Creating and </tspan><tspan
+         id="tspan20">Creating and </tspan><tspan
          x="71.038086"
          y="709.25126"
-         id="tspan54">adding click </tspan><tspan
+         id="tspan21">adding click </tspan><tspan
          x="44.694336"
          y="757.25126"
-         id="tspan55">events in code</tspan></text>
+         id="tspan22">events in code</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,230.39134,21.49855)"
@@ -403,16 +403,16 @@
        style="font-size:48px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:center;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2-4-3-8);display:inline;fill:#ffff66;fill-opacity:1;stroke:none;stroke-width:8.69291;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"><tspan
          x="152.37793"
          y="661.25126"
-         id="tspan56">Click </tspan><tspan
+         id="tspan23">Click </tspan><tspan
          x="69.479492"
          y="709.25126"
-         id="tspan57">interactions </tspan><tspan
+         id="tspan24">interactions </tspan><tspan
          x="81.78418"
          y="757.25126"
-         id="tspan58">with timing </tspan><tspan
+         id="tspan25">with timing </tspan><tspan
          x="74.65918"
          y="805.25126"
-         id="tspan59">parameters</tspan></text>
+         id="tspan26">parameters</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,416.70475,-141.17845)"
@@ -420,19 +420,19 @@
        style="font-size:48px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:center;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3);display:inline;fill:#ffff66;fill-opacity:1;stroke:none;stroke-width:8.69291;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"><tspan
          x="99.757812"
          y="661.25126"
-         id="tspan60">Adding </tspan><tspan
+         id="tspan27">Adding </tspan><tspan
          x="103.76562"
          y="709.25126"
-         id="tspan61">timing  </tspan><tspan
+         id="tspan28">timing  </tspan><tspan
          x="48.816406"
          y="757.25126"
-         id="tspan62">parameters </tspan><tspan
+         id="tspan29">parameters </tspan><tspan
          x="47.84375"
          y="805.25126"
-         id="tspan63">to events in </tspan><tspan
+         id="tspan30">to events in </tspan><tspan
          x="125.28125"
          y="853.25126"
-         id="tspan64">code</tspan></text>
+         id="tspan31">code</tspan></text>
     <g
        id="g5"
        transform="matrix(0.34231229,0,0,0.34231229,330.90387,185.95408)">
@@ -448,7 +448,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:39.7518px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:justify;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3-2);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.92;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"><tspan
            x="38.960938"
            y="91.529446"
-           id="tspan65">It!</tspan></text>
+           id="tspan32">It!</tspan></text>
       <text
          xml:space="preserve"
          transform="matrix(0.68802981,0,0,0.67803062,401.67084,206.01697)"
@@ -456,7 +456,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.4208px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:justify;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect4);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.92;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"><tspan
            x="31.167969"
            y="112.26439"
-           id="tspan66">Click</tspan></text>
+           id="tspan33">Click</tspan></text>
       <ellipse
          style="fill:#ffff66;fill-opacity:1;stroke:none;stroke-width:1.42;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:6.97701;stroke-opacity:1;paint-order:markers stroke fill"
          id="path28"
@@ -496,8 +496,8 @@
        style="font-size:32px;line-height:1;font-family:Righteous;-inkscape-font-specification:Righteous;text-align:center;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect5);display:inline;fill:#ffff66;fill-opacity:1;stroke:none;stroke-width:8.69291;stroke-linecap:square;stroke-linejoin:round;stroke-dashoffset:5.80535;stroke-opacity:0.5;paint-order:markers stroke fill"><tspan
          x="1389.126"
          y="1025.1252"
-         id="tspan68"><tspan
+         id="tspan35"><tspan
            style="fill:#ffffff"
-           id="tspan67">thanks for downloading</tspan></tspan></text>
+           id="tspan34">thanks for downloading</tspan></tspan></text>
   </g>
 </svg>

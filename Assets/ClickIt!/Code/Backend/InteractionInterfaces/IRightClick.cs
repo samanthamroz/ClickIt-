@@ -1,5 +1,5 @@
 namespace ClickIt.Backend {
-    public interface IRightClick {
+    internal interface IRightClick {
         public void DoRightClick();
     }
 }

@@ -1,5 +1,5 @@
 namespace ClickIt.Backend {
-    public interface IMiddleClick {
+    internal interface IMiddleClick {
         public void DoMiddleClick();
     }
 }

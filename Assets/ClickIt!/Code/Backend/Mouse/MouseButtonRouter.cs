@@ -2,12 +2,12 @@ using UnityEngine;
 using System;
 
 namespace ClickIt.Backend {
-    public class MouseButtonRouter : IMouseButtonRouter {
+    internal class MouseButtonRouter : IMouseButtonRouter {
         private InteractableRaycaster raycaster;
         private IValidatedObject[] currentInteractablesBeingClicked;
         private IValidatedObject[] lastInteractablesClicked;
 
-        public MouseButtonRouter(InteractableRaycaster raycaster) {
+        internal MouseButtonRouter(InteractableRaycaster raycaster) {
             this.raycaster = raycaster;
         }
 

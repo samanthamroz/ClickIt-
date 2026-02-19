@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace ClickIt.Backend {
-    public interface IMouse {
+    internal interface IMouse {
         public Vector2 ScreenPosition { get; }
 
         public void SetScreenPosition(Vector2 newScreenPosition);

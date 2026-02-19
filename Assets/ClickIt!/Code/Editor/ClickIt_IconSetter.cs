@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ClickIt.Editor {
     [InitializeOnLoad]
-    public class ClickItIconSetter {
+    internal class ClickItIconSetter {
         private static bool hasSetIcons = false;
         private static readonly string componentIconFilePath = "Assets/ClickIt!/Code/Editor/ClickItIcon.png";
         private static readonly string[] componentFilePaths = {

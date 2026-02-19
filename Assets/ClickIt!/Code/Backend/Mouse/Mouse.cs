@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace ClickIt.Backend {
-    public class Mouse : IMouse {
+    internal class Mouse : IMouse {
         public Vector2 ScreenPosition { get; private set; }
         private Dictionary<MouseButton, bool> _buttonsDown;
-        public Mouse() {
+        internal Mouse() {
             ScreenPosition = new(0, 0);
             _buttonsDown = new() { [MouseButton.left] = false, [MouseButton.right] = false, [MouseButton.middle] = false };
         }

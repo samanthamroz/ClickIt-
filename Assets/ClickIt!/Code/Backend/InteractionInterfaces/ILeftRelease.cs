@@ -1,5 +1,5 @@
 namespace ClickIt.Backend {
-    public interface ILeftRelease {
+    internal interface ILeftRelease {
         public void DoLeftRelease();
     }
 }

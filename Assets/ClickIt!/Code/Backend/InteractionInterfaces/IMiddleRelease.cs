@@ -1,5 +1,5 @@
 namespace ClickIt.Backend {
-    public interface IMiddleRelease {
+    internal interface IMiddleRelease {
         public void DoMiddleRelease();
     }
 }

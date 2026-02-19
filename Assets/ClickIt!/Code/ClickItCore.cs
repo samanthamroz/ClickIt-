@@ -100,8 +100,8 @@ namespace ClickIt {
                     break;
             }
         }
-        public IValidatedObject[] GetInteractableAtPosition(Vector2 screenPosition) {
-            return raycaster.GetInteractablesAtPosition(screenPosition);
+        public GameObject GetInteractableObjectAtPosition(Vector2 screenPosition) {
+            return raycaster.GetInteractableGameObjectAtPosition(screenPosition);
         }
 
         //Delay

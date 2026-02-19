@@ -3,8 +3,8 @@ using System.Linq;
 using UnityEngine;
 
 namespace ClickIt.Backend {
-    public class InteractionEventHandler<TEventData> where TEventData : InteractionEventData {
-        public void ProcessEventsForButton(List<TEventData> events, MouseButton button) {
+    internal class InteractionEventHandler<TEventData> where TEventData : InteractionEventData {
+        internal void ProcessEventsForButton(List<TEventData> events, MouseButton button) {
             var eventsToProcess = events
                     .Where(e => e.Enabled && e.HasButton(button) && !e.IsInTimeout)
                     .ToList();

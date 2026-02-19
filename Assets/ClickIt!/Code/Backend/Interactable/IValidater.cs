@@ -1,5 +1,5 @@
 namespace ClickIt.Backend {
-    public interface IValidater {
+    internal interface IValidater {
         public void ValidateScene();
     }
 }

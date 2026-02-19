@@ -3,12 +3,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace ClickIt.Backend {
-    public class MouseController : IDisposable {
+    internal class MouseController : IDisposable {
         private IMouse mouse;
         private InputActionAsset inputActions;
         private IMouseButtonRouter router;
 
-        public MouseController(IMouseButtonRouter router, IMouse mouse, InputActionAsset actionAsset) {
+        internal MouseController(IMouseButtonRouter router, IMouse mouse, InputActionAsset actionAsset) {
             this.router = router;
 
             this.mouse = mouse;

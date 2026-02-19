@@ -4,7 +4,7 @@ using UnityEditor;
 namespace ClickIt.Editor {
 
 #if UNITY_EDITOR
-    public abstract class EventDataDrawer : PropertyDrawer {
+    internal abstract class EventDataDrawer : PropertyDrawer {
         private const float Spacing = 2f;
         private const float Padding = 4f;
         private const float FieldWidth = 70f;
@@ -34,9 +34,9 @@ namespace ClickIt.Editor {
             float arrowOffset = 12f; // adjust for arrow space
             string foldoutKey = GetFoldoutKey(property);
             bool expanded = SessionState.GetBool(foldoutKey, false);
-            
+
             expanded = EditorGUI.Foldout(new Rect(content.x + arrowOffset, y, content.width - arrowOffset, line), expanded, label, true);
-            
+
             SessionState.SetBool(foldoutKey, expanded);
             y += line + Spacing;
 
@@ -214,21 +214,21 @@ namespace ClickIt.Editor {
     }
 
     [CustomPropertyDrawer(typeof(ClickEventData))]
-    public class ClickEventDataDrawer : EventDataDrawer {
+    internal class ClickEventDataDrawer : EventDataDrawer {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
             DrawGUI(position, property, label, "Click");
         }
     }
 
     [CustomPropertyDrawer(typeof(ReleaseEventData))]
-    public class ReleaseEventDataDrawer : EventDataDrawer {
+    internal class ReleaseEventDataDrawer : EventDataDrawer {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
             DrawGUI(position, property, label, "Release");
         }
     }
 
     [CustomPropertyDrawer(typeof(ClickAwayEventData))]
-    public class ClickAwayEventDataDrawer : EventDataDrawer {
+    internal class ClickAwayEventDataDrawer : EventDataDrawer {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
             DrawGUI(position, property, label, "ClickAway");
         }

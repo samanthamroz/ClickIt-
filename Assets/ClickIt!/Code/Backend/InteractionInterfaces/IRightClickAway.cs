@@ -1,5 +1,5 @@
 namespace ClickIt.Backend {
-    public interface IRightClickAway {
+    internal interface IRightClickAway {
         public void DoRightClickAway();
     }
 }
