@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace ClickIt.Editor {
-
 #if UNITY_EDITOR
+namespace ClickIt.Editor {
     internal abstract class EventDataDrawer : PropertyDrawer {
         private const float Spacing = 2f;
         private const float Padding = 4f;

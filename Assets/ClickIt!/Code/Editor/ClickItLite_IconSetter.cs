@@ -4,33 +4,31 @@ using UnityEngine;
 namespace ClickIt.Editor {
     [InitializeOnLoad]
     internal class ClickItLiteIconSetter {
-        private static bool hasSetIcons = false;
-        private static readonly string componentIconFilePath = "Assets/ClickIt!/Code/Editor/ClickItLiteIcon.png";
-        private static readonly string[] componentFilePaths = {
-            "Assets/ClickIt!/Code/Components/BasicClickableObject.cs",
-            "Assets/ClickIt!/Code/Components/BasicReleaseableObject.cs",
-            "Assets/ClickIt!/Code/Components/BasicClickAwayObject.cs"
+        private static readonly string SessionKey = "ClickItLite_IconsSet";
+        private static readonly string[] componentScriptNames = {
+            "BasicClickableObject",
+            "BasicReleaseableObject",
+            "BasicClickAwayObject"
         };
 
         static ClickItLiteIconSetter() {
-            if (hasSetIcons) return;
-
+            if (SessionState.GetBool(SessionKey, false)) return;
             EditorApplication.delayCall += SetIcons;
         }
 
         private static void SetIcons() {
-            if (hasSetIcons) return;
+            if (SessionState.GetBool(SessionKey, false)) return;
 
-            Texture2D icon = AssetDatabase.LoadAssetAtPath<Texture2D>(componentIconFilePath);
+            Texture2D icon = FindAsset<Texture2D>("ClickItLiteIcon");
             if (icon == null) {
-                Debug.LogWarning($"ClickIt: Could not find component icon at {componentIconFilePath}");
+                Debug.LogWarning("ClickIt: Could not find ClickItIcon texture.");
                 return;
             }
 
-            foreach (var filePath in componentFilePaths) {
-                var script = AssetDatabase.LoadAssetAtPath<MonoScript>(filePath);
+            foreach (var scriptName in componentScriptNames) {
+                MonoScript script = FindAsset<MonoScript>(scriptName);
                 if (script == null) {
-                    Debug.LogWarning($"ClickIt: Could not find component script at {filePath}");
+                    Debug.LogWarning($"ClickIt: Could not find component script: {scriptName}");
                     continue;
                 }
 
@@ -41,7 +39,15 @@ namespace ClickIt.Editor {
                 }
             }
 
-            hasSetIcons = true;
+            SessionState.SetBool(SessionKey, true);
+        }
+
+        private static T FindAsset<T>(string name) where T : Object {
+            string typeFilter = typeof(T) == typeof(MonoScript) ? "t:MonoScript" : $"t:{typeof(T).Name}";
+            var guids = AssetDatabase.FindAssets($"{name} {typeFilter}");
+            if (guids.Length == 0) return null;
+
+            return AssetDatabase.LoadAssetAtPath<T>(AssetDatabase.GUIDToAssetPath(guids[0]));
         }
     }
 }

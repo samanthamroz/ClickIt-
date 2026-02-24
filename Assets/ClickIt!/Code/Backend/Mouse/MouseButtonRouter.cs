@@ -1,43 +1,53 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 namespace ClickIt.Backend {
     internal class MouseButtonRouter : IMouseButtonRouter {
         private InteractableRaycaster raycaster;
-        private IValidatedObject[] currentInteractablesBeingClicked;
-        private IValidatedObject[] lastInteractablesClicked;
+        private Dictionary<MouseButton, IValidatedObject[]> currentInteractablesBeingClicked;
+        private Dictionary<MouseButton, IValidatedObject[]> lastInteractablesClicked;
 
         internal MouseButtonRouter(InteractableRaycaster raycaster) {
             this.raycaster = raycaster;
+            currentInteractablesBeingClicked = new Dictionary<MouseButton, IValidatedObject[]> {
+                [MouseButton.left] = null,
+                [MouseButton.middle] = null,
+                [MouseButton.right] = null
+            };
+            lastInteractablesClicked = new Dictionary<MouseButton, IValidatedObject[]> {
+                [MouseButton.left] = null,
+                [MouseButton.middle] = null,
+                [MouseButton.right] = null
+            };
         }
 
-        private bool TryUpdateCurrentInteractable(Vector2 mouseScreenPosition) {
-            var findInteractables = raycaster.GetInteractablesAtPosition(mouseScreenPosition);
+        private bool TryUpdateCurrentInteractable(MouseButton button, Vector2 mouseScreenPosition) {
+            var findInteractables = raycaster.GetInteractableComponentsAtPosition(mouseScreenPosition);
             if (findInteractables == null) {
                 return false;
             }
             
-            currentInteractablesBeingClicked = findInteractables;
+            currentInteractablesBeingClicked[button] = findInteractables;
             return true;
         }
 
-        private void HandleClick<TClick, TClickAway>(Vector2 screenPosition, Action<TClick> clickAction, Action<TClickAway> clickAwayAction) {
+        private void HandleClick<TClick, TClickAway>(MouseButton button, Vector2 screenPosition, Action<TClick> clickAction, Action<TClickAway> clickAwayAction) {
             // Handle click-away on last interactable
-            if (lastInteractablesClicked != null) {
-                foreach (IValidatedObject interactable in lastInteractablesClicked) {
+            if (lastInteractablesClicked[button] != null) {
+                foreach (IValidatedObject interactable in lastInteractablesClicked[button]) {
                     if (interactable is TClickAway clickAwayObj) {
                         clickAwayAction(clickAwayObj);
                     }
                 }
             }
 
-
             // Try to find new interactable
-            if (!TryUpdateCurrentInteractable(screenPosition)) return;
+            if (!TryUpdateCurrentInteractable(button, screenPosition)) return;
 
             // Handle click on current interactable
-            if (currentInteractablesBeingClicked != null) {
-                foreach (IValidatedObject interactable in currentInteractablesBeingClicked) {
+            if (currentInteractablesBeingClicked[button] != null) {
+                foreach (IValidatedObject interactable in currentInteractablesBeingClicked[button]) {
                     if (interactable is TClick clickObj) {
                         clickAction(clickObj);
                     }
@@ -45,43 +55,43 @@ namespace ClickIt.Backend {
             }
         }
 
-        private void HandleRelease<TRelease>(Action<TRelease> releaseAction) {
-            if (currentInteractablesBeingClicked != null) {
-                foreach (IValidatedObject interactable in currentInteractablesBeingClicked) {
+        private void HandleRelease<TRelease>(MouseButton button, Action<TRelease> releaseAction) {
+            if (currentInteractablesBeingClicked[button] != null) {
+                foreach (IValidatedObject interactable in currentInteractablesBeingClicked[button]) {
                     if (interactable is TRelease releaseObj) {
                         releaseAction(releaseObj);
                     }
                 }
             }
 
-            lastInteractablesClicked = currentInteractablesBeingClicked;
-            currentInteractablesBeingClicked = null;
+            lastInteractablesClicked[button] = currentInteractablesBeingClicked[button];
+            currentInteractablesBeingClicked[button] = null;
         }
 
 
         public void DoLeftClick(Vector2 screenPositionClicked) {
-            HandleClick<ILeftClick, ILeftClickAway>(screenPositionClicked, obj => obj.DoLeftClick(), obj => obj.DoLeftClickAway());
+            HandleClick<ILeftClick, ILeftClickAway>(MouseButton.left, screenPositionClicked, obj => obj.DoLeftClick(), obj => obj.DoLeftClickAway());
         }
 
         public void DoRightClick(Vector2 screenPositionClicked) {
-            HandleClick<IRightClick, IRightClickAway>(screenPositionClicked, obj => obj.DoRightClick(), obj => obj.DoRightClickAway());
+            HandleClick<IRightClick, IRightClickAway>(MouseButton.right, screenPositionClicked, obj => obj.DoRightClick(), obj => obj.DoRightClickAway());
         }
 
         public void DoMiddleClick(Vector2 screenPositionClicked) {
-            HandleClick<IMiddleClick, IMiddleClickAway>(screenPositionClicked, obj => obj.DoMiddleClick(), obj => obj.DoMiddleClickAway());
+            HandleClick<IMiddleClick, IMiddleClickAway>(MouseButton.middle, screenPositionClicked, obj => obj.DoMiddleClick(), obj => obj.DoMiddleClickAway());
         }
 
 
         public void DoLeftRelease() {
-            HandleRelease<ILeftRelease>(obj => obj.DoLeftRelease());
+            HandleRelease<ILeftRelease>(MouseButton.left, obj => obj.DoLeftRelease());
         }
 
         public void DoRightRelease() {
-            HandleRelease<IRightRelease>(obj => obj.DoRightRelease());
+            HandleRelease<IRightRelease>(MouseButton.right, obj => obj.DoRightRelease());
         }
 
         public void DoMiddleRelease() {
-            HandleRelease<IMiddleRelease>(obj => obj.DoMiddleRelease());
+            HandleRelease<IMiddleRelease>(MouseButton.middle, obj => obj.DoMiddleRelease());
         }
     }
 }

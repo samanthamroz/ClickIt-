@@ -1,8 +1,8 @@
 using UnityEngine;
 
 namespace ClickIt.Backend {
-    internal class InteractableRaycaster {
-        internal IValidatedObject[] GetInteractablesAtPosition(Vector2 mouseScreenPosition) {
+    internal class InteractableRaycaster : IInteractableRaycaster {
+        public IValidatedObject[] GetInteractableComponentsAtPosition(Vector2 mouseScreenPosition) {
             Ray ray = Camera.main.ScreenPointToRay(mouseScreenPosition);
 
             //If any collider was hit
@@ -25,8 +25,7 @@ namespace ClickIt.Backend {
             //No interactable found at that point
             return null;
         }
-
-        internal GameObject GetInteractableGameObjectAtPosition(Vector2 mouseScreenPosition) {
+        public GameObject GetInteractableGameObjectAtPosition(Vector2 mouseScreenPosition) {
             Ray ray = Camera.main.ScreenPointToRay(mouseScreenPosition);
 
             //If any collider was hit

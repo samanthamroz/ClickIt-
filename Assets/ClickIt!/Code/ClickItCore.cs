@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 namespace ClickIt {
     [RequireComponent(typeof(PlayerInput))]
     public class ClickItCore : MonoBehaviour {
-        public static ClickItCore Instance;
+        internal static ClickItCore Instance;
         private MouseController mouseController;
         private IValidater validater;
         private IMouse mouse;
@@ -74,6 +74,19 @@ namespace ClickIt {
             return mouse.IsButtonDown(button);
         }
 
+        public void SimulateClickAtMousePosition(MouseButton button) {
+            switch (button) {
+                case MouseButton.left:
+                    router.DoLeftClick(GetMousePosition());
+                    break;
+                case MouseButton.middle:
+                    router.DoMiddleClick(GetMousePosition());
+                    break;
+                case MouseButton.right:
+                    router.DoRightClick(GetMousePosition());
+                    break;
+            }
+        }
         public void SimulateClick(MouseButton button, Vector2 screenPosition) {
             switch (button) {
                 case MouseButton.left:
@@ -100,8 +113,12 @@ namespace ClickIt {
                     break;
             }
         }
+        
         public GameObject GetInteractableObjectAtPosition(Vector2 screenPosition) {
             return raycaster.GetInteractableGameObjectAtPosition(screenPosition);
+        }
+        public GameObject GetInteractableObjectAtMouse() {
+            return raycaster.GetInteractableGameObjectAtPosition(GetMousePosition());
         }
 
         //Delay
